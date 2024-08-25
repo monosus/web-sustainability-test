@@ -1,5 +1,8 @@
 name: Playwright Tests
 on:
+  # schedule:
+  #   - cron: '0 0 1 * *' # 毎月1日に実行
+  #   - cron: '0 0 1 1,4,7,10 *' # 四半期ごとの1日に実行
   workflow_dispatch: # 手動トリガーのみ
 jobs:
   test:
