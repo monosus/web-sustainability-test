@@ -46,7 +46,7 @@ console.log(allResults);
 const markdownContent = Object.entries(allResults).map(([url, { desktop, mobile }]) => {
   const mergedResults = desktop.map((result: Result, index: number) => {
     const mobileResult = mobile[index] || ['', '', 0, 0, false];
-    return `| ${result[0]} | ${result[1]} | ${result[2]} | ${mobileResult[2]} | ${result[4]} | ${result[4] && (mobileResult[4] !== false) ? 'true' : 'false'} |`;
+    return `| ${result[0]} | ${result[1]} | ${result[2]} | ${mobileResult[2]} | ${result[3]} | ${result[4] ? '達成' : '未達成' } |`;
   }).join('\n');
   return `## ${url}\n\n| Resource | Type | Desktop | Mobile | Goal | Result |\n| --- | --- | --- | --- | --- | --- |\n${mergedResults}`;
 }).join('\n\n');
