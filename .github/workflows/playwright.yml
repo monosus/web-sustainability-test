@@ -15,6 +15,15 @@ jobs:
       run: bunx playwright install --with-deps
     - name: Run Playwright tests
       run: bun run test
+    - name: Generate Markdown Report
+      run: bun run createMarkdownReport.ts
+    - name: Commit and Push Report
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add report/
+        git commit -m "Add test report"
+        git push
     - uses: actions/upload-artifact@v4
       if: always()
       with:
